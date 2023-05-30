@@ -9,14 +9,15 @@ interface storeProps{
   loading: boolean
 }
 
+const initialState = {
+  page: 0,
+  data: null,
+  loading: false
+}
+
 export default component$(() => {
  
-  const state = useStore<storeProps>({
-    page: 0,
-    data: null,
-    loading: false
-  })
-
+  const state = useStore<storeProps>(initialState)
   const element = useSignal<HTMLElement>();
 
   useTask$(async ({track, cleanup}) => {
@@ -31,10 +32,12 @@ export default component$(() => {
         signal: controller?.signal
       })
       const res = await respuesta.json() as Root;
-      console.log('res', res.data);
 
       if(state.data){
-        state.data.results = [...state.data.results, ...res.data.results]
+        state.data = {
+          ...res.data,
+          results: [...state.data.results, ...res.data.results]
+        }
       }else{
         state.data = res.data
       }
@@ -49,17 +52,11 @@ export default component$(() => {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0]?.isIntersecting) {
-          state.page = ++state.page;
-        }
+        if (entries[0]?.isIntersecting) state.page = ++state.page
       },
-      { 
-        threshold: 0.1 
-      }
+      { threshold: 0.1 }
     );
-    if (element?.value) {
-      observer.observe(element.value);
-    }
+    if (element?.value) observer.observe(element.value);
 
     cleanup( () => observer.disconnect())
   

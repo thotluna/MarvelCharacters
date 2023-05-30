@@ -14,6 +14,7 @@ export const onGet: RequestHandler = async (requestEvent) => {
 
     const data = await res.json()
 
+
     requestEvent.json(200, data);
     
   } catch (error) {
