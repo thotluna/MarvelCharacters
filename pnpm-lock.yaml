@@ -10,6 +10,7 @@ specifiers:
   autoprefixer: ^10.4.14
   eslint: 8.40.0
   eslint-plugin-qwik: ^1.1.4
+  js-md5: ^0.7.3
   postcss: ^8.4.23
   prettier: 2.8.8
   tailwindcss: ^3.3.1
@@ -17,6 +18,9 @@ specifiers:
   undici: 5.22.1
   vite: 4.3.5
   vite-tsconfig-paths: 4.2.0
+
+dependencies:
+  js-md5: 0.7.3
 
 devDependencies:
   '@builder.io/qwik': 1.1.4_undici@5.22.1
@@ -1644,6 +1648,10 @@ packages:
     resolution: {integrity: sha512-QAdOptna2NYiSSpv0O/BwoHBSmz4YhpzJHyi+fnMRTXFjp7B8i/YG5Z8IfusxB1ufjcD2Sre1F3R+nX3fvy7gg==}
     hasBin: true
     dev: true
+
+  /js-md5/0.7.3:
+    resolution: {integrity: sha512-ZC41vPSTLKGwIRjqDh8DfXoCrdQIyBgspJVPXHBGu4nZlAEvG3nf+jO9avM9RmLiGakg7vz974ms99nEV0tmTQ==}
+    dev: false
 
   /js-sdsl/4.4.0:
     resolution: {integrity: sha512-FfVSdx6pJ41Oa+CF7RDaFmTnCaFhua+SNYQX74riGOpl96x+2jQCqEfQ2bnXu/5DPCqlRuiqyvTJM0Qjz26IVg==}
