@@ -1,4 +1,4 @@
-import MD5 from "crypto-js/md5.js"
+import MD5 from "crypto-js/md5.js";
 
 export const urlBase = "https://gateway.marvel.com:443/v1/public/";
 
@@ -13,10 +13,14 @@ export const getHash = (privateToken: string) => {
   return { hash, ts };
 };
 
-export const generateUrl = (keyPrivate: string, page?: number, search?: string) => {
+export const generateUrl = (
+  keyPrivate: string,
+  page?: number,
+  search?: string
+) => {
   const { hash, ts } = getHash(keyPrivate);
   const url = new URL(`${urlBase}${ENDPOINT.CHARACTERS}`);
-  
+
   if (page && page > 0) {
     const offset = page * 20 + 1;
     url.searchParams.append("offset", offset.toString());
