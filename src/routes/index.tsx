@@ -26,7 +26,7 @@ export default component$(() => {
       <section class="w-full h-full flex justify-center items-center">
         {state.data && state.data?.results.length > 0 && (
           <div
-            class="p-8 w-full grid  gap-8 justify-between items-center "
+            class="p-8 w-full grid  gap-8 "
             style={{
               gridTemplateColumns: "repeat(auto-fill, minmax(10rem, 1fr))",
             }}
