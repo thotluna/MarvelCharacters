@@ -1,4 +1,5 @@
 import { $, useStore, useTask$ } from "@builder.io/qwik";
+import { useLocation } from "@builder.io/qwik-city";
 import type { Data, Root } from "~/models";
 
 
@@ -10,6 +11,9 @@ export interface storeProps {
 }
 
 export function useLoadCharacters(){
+
+  const myUrl = useLocation()
+  const baseUrl = myUrl.url.href
   
   const initialState = {
     page: 0,
@@ -41,7 +45,7 @@ export function useLoadCharacters(){
     
     const controller = new AbortController();
     cleanup(() => controller.abort());
-    const url = `http://localhost:5173/api/characters/${state.page}/${state.search}`;
+    const url = `${baseUrl}api/characters/${state.page}/${state.search}`;
     const res: Root | null = await handlerFetch(url, controller)
     if(!res) return
         
@@ -65,7 +69,10 @@ export function useLoadCharacters(){
     if(state.data) state.data.results= []
     state.page=0
 
-    const url = `http://localhost:5173/api/characters/${state.page}/${state.search}`;
+    
+    
+
+    const url = `${baseUrl}api/characters/${state.page}/${state.search}`;
 
     const res: Root | null = await handlerFetch(url, controller)
     if(!res) return
