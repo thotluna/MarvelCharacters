@@ -12,15 +12,20 @@ export const getHash = (privateToken: string) => {
   return { hash: md5(ts + privateToken + VITE_API_TOKEN_KEY), ts };
 };
 
-export const generateUrl = (keyPrivate: string, page: number) => {
+export const generateUrl = (keyPrivate: string, page?: number, search?: string) => {
   const { hash, ts } = getHash(keyPrivate);
-  const url = new URL(`${urlBase}/${ENDPOINT.CHARACTERS}`);
-  url.searchParams.append("ts", `${ts}`);
-  url.searchParams.append("apikey", import.meta.env.VITE_API_TOKEN_KEY);
-  url.searchParams.append("hash", hash);
-  if (page > 0) {
+  const url = new URL(`${urlBase}${ENDPOINT.CHARACTERS}`);
+  
+  if (page && page > 0) {
     const offset = page * 20 + 1;
     url.searchParams.append("offset", offset.toString());
   }
+  if (search && search.length > 0) {
+    url.searchParams.append("nameStartsWith", search);
+  }
+
+  url.searchParams.append("ts", `${ts}`);
+  url.searchParams.append("apikey", import.meta.env.VITE_API_TOKEN_KEY);
+  url.searchParams.append("hash", hash);
   return url;
 };

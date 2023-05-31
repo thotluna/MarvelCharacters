@@ -13,7 +13,7 @@ export const Character = component$<CharacterProps>(({ character, ref }) => {
   return (
     <article
       ref={ref}
-      class="relative bg-slate-950 w-48 h-96 overflow-hidden rounded-t-3xl before:absolute before:top-0 before:right-0 before:w-48 before:h-48 before:bg-red-600 before:transition-all before:duration-200 hover:before:absolute hover:before:top-0 hover:before:right-0 hover:before:w-48 hover:before:h-96 hover:before:bg-red-600 after:absolute after:overflow-hidden after:bottom-0 after:right-0 after:top-auto after:border-t-transparent after:border-r-slate-800 after:border-b-transparent after:border-l-transparent   after:border-t-[12px] after:border-r-[12px] after:border-b-0 after:border-l-0 "
+      class="relative bg-slate-950 w-48 h-96 overflow-hidden rounded-t-3xl before:absolute before:top-0 before:right-0 before:w-48 before:h-48 before:bg-red-600 before:transition-all before:duration-200 hover:before:absolute hover:before:top-0 hover:before:right-0 hover:before:w-48 hover:before:h-96 hover:before:bg-red-600 after:absolute after:overflow-hidden after:bottom-0 after:right-0 after:top-auto after:border-t-transparent after:border-r-yellow-500 after:border-b-transparent after:border-l-transparent   after:border-t-[12px] after:border-r-[12px] after:border-b-0 after:border-l-0 "
     >
       <header class="relative w-48 h-[11.5rem] overflow-hidden transition transform duration-200 ease-linear hover:scale-110">
         <img
