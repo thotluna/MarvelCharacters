@@ -9,9 +9,7 @@ export const onGet: RequestHandler = async (requestEvent) => {
 
   const url = generateUrl(privateKey, page, search);
 
-  try {
-    console.log('Url remote', url);
-    
+  try {   
     const res = await fetch(url, {
       method: "GET",
     });

@@ -25,9 +25,7 @@ export function useLoadCharacters(){
   const state = useStore<storeProps>(initialState);
 
   const handlerFetch = $(async (url: string, controller: AbortController) => {
-    try {
-      console.log('Url local', url);
-      
+    try {     
       const respuesta = await fetch(url, {
         method: "GET",
         signal: controller?.signal,
