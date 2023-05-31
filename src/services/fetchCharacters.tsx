@@ -1,4 +1,4 @@
-import md5 from "js-md5";
+import MD5 from "crypto-js/md5.js"
 
 export const urlBase = "https://gateway.marvel.com:443/v1/public/";
 
@@ -9,7 +9,8 @@ export const ENDPOINT = {
 export const getHash = (privateToken: string) => {
   const VITE_API_TOKEN_KEY = import.meta.env.VITE_API_TOKEN_KEY;
   const ts = new Date().getTime();
-  return { hash: md5(ts + privateToken + VITE_API_TOKEN_KEY), ts };
+  const hash: string = MD5(ts + privateToken + VITE_API_TOKEN_KEY).toString();
+  return { hash, ts };
 };
 
 export const generateUrl = (keyPrivate: string, page?: number, search?: string) => {
