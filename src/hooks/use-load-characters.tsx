@@ -1,26 +1,12 @@
-import { $, useStore, useTask$ } from "@builder.io/qwik";
+import { $, useTask$, useVisibleTask$ } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
-import type { Data, Root } from "~/models";
+import type { Root, storeProps } from "~/models"
+import { useMessageContext } from "./use-message-context";
 
-export interface storeProps {
-  page: number;
-  data?: Data | null;
-  loading: boolean;
-  search: string;
-}
-
-export function useLoadCharacters() {
+export function useLoadCharacters(state: storeProps) {
+  const {handlerStorageMessage} = useMessageContext()
   const myUrl = useLocation();
   const baseUrl = myUrl.url.href;
-
-  const initialState = {
-    page: 0,
-    data: null,
-    loading: false,
-    search: "",
-  };
-
-  const state = useStore<storeProps>(initialState);
 
   const handlerFetch = $(async (url: string, controller: AbortController) => {
     try {
@@ -28,9 +14,11 @@ export function useLoadCharacters() {
         method: "GET",
         signal: controller?.signal,
       });
+      const res: Root = await respuesta.json()
 
-      return (await respuesta.json()) as Root;
+      return res;
     } catch (error) {
+      handlerStorageMessage(error);
       console.error(error);
       return null;
     }
@@ -77,7 +65,13 @@ export function useLoadCharacters() {
     } else {
       state.data = res.data;
     }
+    state.loading = false
   });
 
+  useVisibleTask$(({track})=>{
+    track(() => state.data)
+    state.loading = false
+    console.log(`/*/**/*/*/*/**/*//**/*/ Cambiando a false`);
+  })
   return state;
 }

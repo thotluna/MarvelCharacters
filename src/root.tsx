@@ -1,20 +1,22 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useContextProvider, useStore, useVisibleTask$ } from "@builder.io/qwik";
 import {
   QwikCityProvider,
   RouterOutlet,
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
+import { MessageBar } from "./components/message-bar";
 import { RouterHead } from "./components/router-head/router-head";
+import { MessageContext } from "./contexts/message-context";
 
 import "./global.css";
+import type { MessageStore} from "./models";
+import { MessageType } from "./models";
+
+
 
 export default component$(() => {
-  /**
-   * The root of a QwikCity site always start with the <QwikCityProvider> component,
-   * immediately followed by the document's <head> and <body>.
-   *
-   * Dont remove the `<head>` and `<body>` elements.
-   */
+  const store: MessageStore = useStore({message:'', type: MessageType.SUCCESS, requiredTimeout: false})
+  useContextProvider(MessageContext, store);
 
   return (
     <QwikCityProvider>
@@ -23,8 +25,11 @@ export default component$(() => {
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
       </head>
-      <body lang="en">
+      <body class='relative' lang="en">
         <RouterOutlet />
+        <div class='sticky bottom-4 right-0 left-0 h-10'> 
+          <MessageBar /> 
+        </div>
         <ServiceWorkerRegister />
       </body>
     </QwikCityProvider>

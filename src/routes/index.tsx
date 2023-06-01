@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, $, useStore } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import { Character } from "~/components/character/character";
 import { DontResource } from "~/components/dont-resource";
@@ -6,12 +6,31 @@ import { SearchBar } from "~/components/search-bar";
 import { useDebounding } from "~/hooks/use-debounding";
 import { useIntersectionObserver } from "~/hooks/use-intersection-observer";
 import { useLoadCharacters } from "~/hooks/use-load-characters";
-import type { CharacterType } from "~/models";
+import { useLoading } from "~/hooks/use-loading";
+import type { CharacterType, storeProps } from "~/models";
 
 export default component$(() => {
-  const state = useLoadCharacters();
-  const element = useIntersectionObserver(state);
+
+  const initialState = {
+    page: 0,
+    data: null,
+    loading: false,
+    search: "",
+  };
+
+  const state = useStore<storeProps>(initialState);
+  useLoadCharacters(state);
+
+  useLoading(state)
+  const element = useIntersectionObserver(
+    $(() => {
+      state.loading = true;
+      state.page++
+    })
+  );
   const search = useDebounding(state, 300);
+
+  const handlerChangeLoading = $(() => state.loading = !state.loading)
 
   return (
     <>
@@ -21,8 +40,9 @@ export default component$(() => {
         </h1>
       </header>
 
-      <SearchBar search={search} placeholder="A-Bonb" />
+      <button onClick$={handlerChangeLoading }>Load {state.loading.toString()}</button>
 
+      <SearchBar search={search} placeholder="A-Bonb" />
       <section class="w-full h-full flex justify-center items-center">
         {state.data && state.data?.results.length > 0 && (
           <div
@@ -46,7 +66,9 @@ export default component$(() => {
             />
           </div>
         )}
+        
       </section>
+      
     </>
   );
 });

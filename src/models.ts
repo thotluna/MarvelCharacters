@@ -88,3 +88,29 @@ export interface Url {
   type: string;
   url: string;
 }
+
+export const MessageType = {
+  INFO: 'info',
+  LOADING: 'loading',
+  SUCCESS: 'success',
+  ERROR: 'error', 
+}
+
+export interface MessageStore{
+  message: string,
+  type: string,
+  requiredTimeout: boolean
+}
+
+export const MessageStoreDefaults = {
+  message: '',
+  type: MessageType.SUCCESS,
+  requiredTimeout: true
+}
+
+export interface storeProps {
+  page: number;
+  data?: Data | null;
+  loading: boolean;
+  search: string;
+}
