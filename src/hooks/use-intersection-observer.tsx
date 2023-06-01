@@ -12,7 +12,10 @@ export function useIntersectionObserver(callback: QRL<() => void>) {
          callback()
         }
       },
-      { threshold: 0.1 }
+      { 
+        rootMargin: '500px',
+        threshold: 0 
+      }
     );
     if (element?.value) observer.observe(element.value);
 
