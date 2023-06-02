@@ -30,23 +30,14 @@ export default component$(() => {
   );
   const search = useDebounding(state, 300);
 
-  const handlerChangeLoading = $(() => state.loading = !state.loading)
-
   return (
     <>
-      <header class="w-full flex items-center justify-center bg-red-600 p-8 ">
-        <h1 class="text-7xl w-full inline-block text-center text-stone-50 ">
-          Marvel Heroes
-        </h1>
-      </header>
-
-      <button onClick$={handlerChangeLoading }>Load {state.loading.toString()}</button>
-
+      
       <SearchBar search={search} placeholder="A-Bonb" />
-      <section class="w-full h-full flex justify-center items-center">
+      <section class="w-full p-8 flex justify-center items-center">
         {state.data && state.data?.results.length > 0 && (
           <div
-            class="p-8 w-full grid  gap-8 "
+            class=" w-full grid  gap-8 "
             style={{
               gridTemplateColumns: "repeat(auto-fill, minmax(10rem, 1fr))",
             }}
