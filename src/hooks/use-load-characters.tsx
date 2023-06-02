@@ -1,28 +1,28 @@
 import { $, useTask$, useVisibleTask$ } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import type { Root, storeProps } from "~/models"
-import { useMessageContext } from "./use-message-context";
+
+export const handlerFetch = $(async (url: string, controller: AbortController) => {
+  try {
+    const respuesta = await fetch(url, {
+      method: "GET",
+      signal: controller?.signal,
+    });
+    const res: Root = await respuesta.json()
+
+    return res;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+});
+
 
 export function useLoadCharacters(state: storeProps) {
-  const {handlerStorageMessage} = useMessageContext()
   const myUrl = useLocation();
   const baseUrl = myUrl.url.href;
 
-  const handlerFetch = $(async (url: string, controller: AbortController) => {
-    try {
-      const respuesta = await fetch(url, {
-        method: "GET",
-        signal: controller?.signal,
-      });
-      const res: Root = await respuesta.json()
-
-      return res;
-    } catch (error) {
-      handlerStorageMessage(error);
-      console.error(error);
-      return null;
-    }
-  });
+  
 
   useTask$(async ({ track, cleanup }) => {
     track(() => state.page);

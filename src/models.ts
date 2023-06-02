@@ -16,6 +16,126 @@ export interface Data {
   results: CharacterType[];
 }
 
+export interface Thumbnail {
+  path: string;
+  extension: string;
+}
+
+export const InitialThumbnail = {
+  path: '',
+  extension: ''
+} 
+
+export interface Item {
+  resourceURI: string;
+  name: string;
+}
+
+export const InitialItem = {
+  resourceURI: '',
+  name: ''
+}
+
+export interface Comics {
+  available: number;
+  collectionURI: string;
+  items: Item[];
+  returned: number;
+}
+
+export const InitialComics = {
+  available: 0,
+  collectionURI: '',
+  items: [InitialItem],
+  returned: 0
+}
+
+export interface Item2 {
+  resourceURI: string;
+  name: string;
+}
+
+export const InitialItem2 ={
+  resourceURI: '',
+  name: ''
+}
+
+
+export interface Series {
+  available: number;
+  collectionURI: string;
+  items: Item2[];
+  returned: number;
+}
+
+export const InitialSeries =  {
+  available: '',
+  collectionURI: '',
+  items: [InitialItem2],
+  returned: ''
+}
+
+export interface Item3 {
+  resourceURI: string;
+  name: string;
+  type: string;
+}
+
+export const InitialItem3 = {
+  resourceURI: '',
+  name: '',
+  type: ''
+}
+
+export interface Stories {
+  available: number;
+  collectionURI: string;
+  items: Item3[];
+  returned: number;
+}
+
+export const InitialStories =  {
+  available: 0,
+  collectionURI: '',
+  items: [InitialItem3],
+  returned: 0
+}
+
+export interface Item4 {
+  resourceURI: string;
+  name: string;
+}
+
+export const InitialItem4 = {
+  resourceURI: '',
+  name: ''
+}
+
+export interface Events {
+  available: number;
+  collectionURI: string;
+  items: Item4[];
+  returned: number;
+}
+
+export const InitialEvents = {
+  available: 0,
+  collectionURI: '',
+  items: [InitialItem4],
+  returned: 0
+}
+
+
+export interface Url {
+  type: string;
+  url: string;
+}
+
+export const InitialUrl = {
+  type: '',
+  url: ''
+}
+
 export interface CharacterType {
   id: number;
   name: string;
@@ -30,64 +150,19 @@ export interface CharacterType {
   urls: Url[];
 }
 
-export interface Thumbnail {
-  path: string;
-  extension: string;
-}
-
-export interface Comics {
-  available: number;
-  collectionURI: string;
-  items: Item[];
-  returned: number;
-}
-
-export interface Item {
-  resourceURI: string;
-  name: string;
-}
-
-export interface Series {
-  available: number;
-  collectionURI: string;
-  items: Item2[];
-  returned: number;
-}
-
-export interface Item2 {
-  resourceURI: string;
-  name: string;
-}
-
-export interface Stories {
-  available: number;
-  collectionURI: string;
-  items: Item3[];
-  returned: number;
-}
-
-export interface Item3 {
-  resourceURI: string;
-  name: string;
-  type: string;
-}
-
-export interface Events {
-  available: number;
-  collectionURI: string;
-  items: Item4[];
-  returned: number;
-}
-
-export interface Item4 {
-  resourceURI: string;
-  name: string;
-}
-
-export interface Url {
-  type: string;
-  url: string;
-}
+export const InitialCharacter: CharacterType = {
+  id: 0,
+  name: '',
+  description: '',
+  modified: '',
+  thumbnail: InitialThumbnail,
+  resourceURI: '',
+  comics: InitialComics,
+  series: InitialStories,
+  stories: InitialStories,
+  events: InitialEvents,
+  urls: [InitialUrl],
+ }
 
 export const MessageType = {
   INFO: 'info',
