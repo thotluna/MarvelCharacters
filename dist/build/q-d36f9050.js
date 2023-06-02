@@ -1,0 +1,1 @@
+import{k as s,z as o,_ as r}from"./q-48a97820.js";import{M as t}from"./q-2e3f1f14.js";function _(){const e=s(t);if(!e)throw new Error("No storage message");return{storageMessage:e,handlerStorageMessage:o(()=>r(()=>import("./q-4b6a1d6b.js"),["build/q-4b6a1d6b.js","build/q-48a97820.js"]),"s_SDZLFWREFo8",[e])}}export{_ as u};

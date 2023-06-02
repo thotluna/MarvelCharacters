@@ -1,0 +1,1 @@
+import{a as c}from"./q-48a97820.js";import{b as f}from"./q-48a97820.js";const v=({track:s,cleanup:t})=>{const[n,o]=c();s(()=>o.value);const e=new IntersectionObserver(a=>{var r;(r=a[0])!=null&&r.isIntersecting&&n()},{rootMargin:"500px",threshold:0});o!=null&&o.value&&e.observe(o.value),t(()=>e.disconnect())};export{f as _hW,v as s_kZC7dY5gX8Y};

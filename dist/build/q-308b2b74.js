@@ -1,0 +1,1 @@
+import{a as i}from"./q-48a97820.js";import{b as p}from"./q-48a97820.js";const m=s=>{const[o]=i();o.id=s.id,o.name=s.name,o.description=s.description,o.modified=s.modified,o.thumbnail=s.thumbnail,o.resourceURI=s.resourceURI,o.comics=s.comics,o.series=s.series,o.stories=s.stories,o.events=s.events,o.urls=s.urls};export{p as _hW,m as s_xhpw0pxaaUo};

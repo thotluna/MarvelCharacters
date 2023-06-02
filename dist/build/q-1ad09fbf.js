@@ -1,0 +1,1 @@
+import{N as e}from"./q-48a97820.js";const t=()=>e("header",null,{class:"w-full flex items-center justify-center bg-red-600 p-8 "},e("h1",null,{class:"text-7xl w-full inline-block text-center text-stone-50 "},"Marvel Heroes",3,null),3,"km_0");export{t as s_ReuFuGvwJWI};

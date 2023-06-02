@@ -1,0 +1,1 @@
+import{a as r}from"./q-48a97820.js";import{b as d}from"./q-48a97820.js";const u=({track:o,cleanup:t})=>{const[e,s,a]=r();o(()=>e.value);const c=setTimeout(()=>{s.search=e.value},a);t(()=>clearTimeout(c))};export{d as _hW,u as s_0QQZKdGcM0Q};

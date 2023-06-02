@@ -1,0 +1,1 @@
+import{b as u}from"./q-48a97820.js";const r=async(a,s)=>{try{return await(await fetch(a,{method:"GET",signal:s==null?void 0:s.signal})).json()}catch(t){return console.error(t),null}};export{u as _hW,r as s_iOt2f96L8yU};
