@@ -69,7 +69,6 @@ export const Search = ({
   </svg>
 );
 
-
 export const Cancel = ({
   width = 21,
   height = 21,
@@ -77,20 +76,22 @@ export const Cancel = ({
   width?: number;
   height?: number;
 }) => (
-  <svg 
+  <svg
     width={width}
-    height={height} 
-    viewBox="0 0 21 21"  
-    xmlns="http://www.w3.org/2000/svg">
-    <g 
+    height={height}
+    viewBox="0 0 21 21"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
       fill="none"
-      fill-rule="evenodd" 
-      stroke="currentColor" 
-      stroke-linecap="round" 
-      stroke-linejoin="round" 
-      transform="translate(5 5)">
-        <path d="m10.5 10.5-10-10z"/>
-        <path d="m10.5.5-10 10"/>
+      fill-rule="evenodd"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      transform="translate(5 5)"
+    >
+      <path d="m10.5 10.5-10-10z" />
+      <path d="m10.5.5-10 10" />
     </g>
   </svg>
 );

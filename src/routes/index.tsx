@@ -10,7 +10,6 @@ import { useLoading } from "~/hooks/use-loading";
 import type { CharacterType, storeProps } from "~/models";
 
 export default component$(() => {
-
   const initialState = {
     page: 0,
     data: null,
@@ -21,18 +20,17 @@ export default component$(() => {
   const state = useStore<storeProps>(initialState);
   useLoadCharacters(state);
 
-  useLoading(state)
+  useLoading(state);
   const element = useIntersectionObserver(
     $(() => {
       state.loading = true;
-      state.page++
+      state.page++;
     })
   );
   const search = useDebounding(state, 300);
 
   return (
     <>
-      
       <SearchBar search={search} placeholder="A-Bonb" />
       <section class="w-full p-8 flex justify-center items-center">
         {state.data && state.data?.results.length > 0 && (
@@ -57,9 +55,7 @@ export default component$(() => {
             />
           </div>
         )}
-        
       </section>
-      
     </>
   );
 });

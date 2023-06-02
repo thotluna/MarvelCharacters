@@ -1,28 +1,27 @@
 import { $, useTask$, useVisibleTask$ } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
-import type { Root, storeProps } from "~/models"
+import type { Root, storeProps } from "~/models";
 
-export const handlerFetch = $(async (url: string, controller: AbortController) => {
-  try {
-    const respuesta = await fetch(url, {
-      method: "GET",
-      signal: controller?.signal,
-    });
-    const res: Root = await respuesta.json()
+export const handlerFetch = $(
+  async (url: string, controller: AbortController) => {
+    try {
+      const respuesta = await fetch(url, {
+        method: "GET",
+        signal: controller?.signal,
+      });
+      const res: Root = await respuesta.json();
 
-    return res;
-  } catch (error) {
-    console.error(error);
-    return null;
+      return res;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
   }
-});
-
+);
 
 export function useLoadCharacters(state: storeProps) {
   const myUrl = useLocation();
   const baseUrl = myUrl.url.href;
-
-  
 
   useTask$(async ({ track, cleanup }) => {
     track(() => state.page);
@@ -65,13 +64,13 @@ export function useLoadCharacters(state: storeProps) {
     } else {
       state.data = res.data;
     }
-    state.loading = false
+    state.loading = false;
   });
 
-  useVisibleTask$(({track})=>{
-    track(() => state.data)
-    state.loading = false
+  useVisibleTask$(({ track }) => {
+    track(() => state.data);
+    state.loading = false;
     console.log(`/*/**/*/*/*/**/*//**/*/ Cambiando a false`);
-  })
+  });
   return state;
 }

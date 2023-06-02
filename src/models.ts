@@ -22,9 +22,9 @@ export interface Thumbnail {
 }
 
 export const InitialThumbnail = {
-  path: '',
-  extension: ''
-} 
+  path: "",
+  extension: "",
+};
 
 export interface Item {
   resourceURI: string;
@@ -32,9 +32,9 @@ export interface Item {
 }
 
 export const InitialItem = {
-  resourceURI: '',
-  name: ''
-}
+  resourceURI: "",
+  name: "",
+};
 
 export interface Comics {
   available: number;
@@ -45,21 +45,20 @@ export interface Comics {
 
 export const InitialComics = {
   available: 0,
-  collectionURI: '',
+  collectionURI: "",
   items: [InitialItem],
-  returned: 0
-}
+  returned: 0,
+};
 
 export interface Item2 {
   resourceURI: string;
   name: string;
 }
 
-export const InitialItem2 ={
-  resourceURI: '',
-  name: ''
-}
-
+export const InitialItem2 = {
+  resourceURI: "",
+  name: "",
+};
 
 export interface Series {
   available: number;
@@ -68,12 +67,12 @@ export interface Series {
   returned: number;
 }
 
-export const InitialSeries =  {
-  available: '',
-  collectionURI: '',
+export const InitialSeries = {
+  available: "",
+  collectionURI: "",
   items: [InitialItem2],
-  returned: ''
-}
+  returned: "",
+};
 
 export interface Item3 {
   resourceURI: string;
@@ -82,10 +81,10 @@ export interface Item3 {
 }
 
 export const InitialItem3 = {
-  resourceURI: '',
-  name: '',
-  type: ''
-}
+  resourceURI: "",
+  name: "",
+  type: "",
+};
 
 export interface Stories {
   available: number;
@@ -94,12 +93,12 @@ export interface Stories {
   returned: number;
 }
 
-export const InitialStories =  {
+export const InitialStories = {
   available: 0,
-  collectionURI: '',
+  collectionURI: "",
   items: [InitialItem3],
-  returned: 0
-}
+  returned: 0,
+};
 
 export interface Item4 {
   resourceURI: string;
@@ -107,9 +106,9 @@ export interface Item4 {
 }
 
 export const InitialItem4 = {
-  resourceURI: '',
-  name: ''
-}
+  resourceURI: "",
+  name: "",
+};
 
 export interface Events {
   available: number;
@@ -120,11 +119,10 @@ export interface Events {
 
 export const InitialEvents = {
   available: 0,
-  collectionURI: '',
+  collectionURI: "",
   items: [InitialItem4],
-  returned: 0
-}
-
+  returned: 0,
+};
 
 export interface Url {
   type: string;
@@ -132,9 +130,9 @@ export interface Url {
 }
 
 export const InitialUrl = {
-  type: '',
-  url: ''
-}
+  type: "",
+  url: "",
+};
 
 export interface CharacterType {
   id: number;
@@ -152,36 +150,36 @@ export interface CharacterType {
 
 export const InitialCharacter: CharacterType = {
   id: 0,
-  name: '',
-  description: '',
-  modified: '',
+  name: "",
+  description: "",
+  modified: "",
   thumbnail: InitialThumbnail,
-  resourceURI: '',
+  resourceURI: "",
   comics: InitialComics,
   series: InitialStories,
   stories: InitialStories,
   events: InitialEvents,
   urls: [InitialUrl],
- }
+};
 
 export const MessageType = {
-  INFO: 'info',
-  LOADING: 'loading',
-  SUCCESS: 'success',
-  ERROR: 'error', 
-}
+  INFO: "info",
+  LOADING: "loading",
+  SUCCESS: "success",
+  ERROR: "error",
+};
 
-export interface MessageStore{
-  message: string,
-  type: string,
-  requiredTimeout: boolean
+export interface MessageStore {
+  message: string;
+  type: string;
+  requiredTimeout: boolean;
 }
 
 export const MessageStoreDefaults = {
-  message: '',
+  message: "",
   type: MessageType.SUCCESS,
-  requiredTimeout: true
-}
+  requiredTimeout: true,
+};
 
 export interface storeProps {
   page: number;

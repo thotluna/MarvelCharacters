@@ -23,5 +23,4 @@ export const onGet: RequestHandler = async (requestEvent) => {
   } catch (error) {
     requestEvent.json(500, { error: error });
   }
-
-}
+};

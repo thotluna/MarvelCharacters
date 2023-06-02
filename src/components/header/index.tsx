@@ -7,5 +7,5 @@ export const Header = component$(() => {
         Marvel Heroes
       </h1>
     </header>
-  )
+  );
 });
