@@ -17,7 +17,7 @@ jobs:
           node-version: 18
       - name: install pnpm dependecy
         run: pnpm ci
-      -name: build app
+      - name: build app
         run: pnpm build
       - name: Publish
         uses: cloudflare/wrangler-action@2.0.0
