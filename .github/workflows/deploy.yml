@@ -15,8 +15,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: install pnpm dependecy
-        run: pnpm ci
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.26.3
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+            - args: [--global, gulp, prettier, typescript]
+      - name: Install dependencies
+        run: pnpm install
       - name: build app
         run: pnpm build
       - name: Publish
