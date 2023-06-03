@@ -27,4 +27,9 @@ jobs:
       - name: build app
         run: pnpm build
       - name: Publish
-        run: pnpm deploy
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          workingDirectory: 'dist'
+          wranglerVersion: '2.20.0'
+          command: pages publish --project-name=marvel-characters
