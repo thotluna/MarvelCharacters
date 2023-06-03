@@ -31,4 +31,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }} 
           wranglerVersion: '2.20.0'
+          directory: ./dist
           command: pages publish ./dist --project-name=marvel-characters
