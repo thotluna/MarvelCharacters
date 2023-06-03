@@ -32,4 +32,4 @@ jobs:
           apiToken: ${{ secrets.CF_API_TOKEN }} 
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: '2.20.0'
-          command: pages publish dist --project-name=marvel-characters
+          command: pages publish ../../dist --project-name=marvel-characters
